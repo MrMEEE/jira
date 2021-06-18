@@ -428,15 +428,15 @@ fields:
 {{- if .meta.fields.assignee }}
   {{- if .overrides.assignee }}
   assignee:
-    emailAddress: {{ .overrides.assignee }}
+    name: {{ .overrides.assignee }}
   {{- else if .fields.assignee }}
   assignee: {{if .fields.assignee.name}}
-    emailAddress: {{ or .fields.assignee.name}}
+    name: {{ or .fields.assignee.name}}
   {{- else }}
     emailAddress: {{.fields.assignee.emailAddress}}{{end}}{{end}}{{end}}
 {{- if .meta.fields.reporter}}
   reporter:
-    emailAddress: {{ if .overrides.reporter }}{{ .overrides.reporter }}{{else if .fields.reporter}}{{ .fields.reporter.emailAddress }}{{end}}{{end}}
+    name: {{ if .overrides.reporter }}{{ .overrides.reporter }}{{else if .fields.reporter}}{{ .fields.reporter.emailAddress }}{{end}}{{end}}
 {{- if .meta.fields.customfield_10110}}
   # watchers
   customfield_10110: {{ range .fields.customfield_10110 }}
